@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :comments
+  post '/rating/:id', to: 'ratings#rate_user', as: 'rating'
+
 end
