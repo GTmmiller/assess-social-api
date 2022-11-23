@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_222853) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_173402) do
   create_table "actions", force: :cascade do |t|
     t.string "action_type"
     t.text "body"
@@ -40,6 +40,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_222853) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "rating_changes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rating_changes_on_user_id"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer "stars"
     t.datetime "created_at", null: false
@@ -61,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_222853) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "rating_changes", "users"
   add_foreign_key "ratings", "users", column: "ratee_id"
   add_foreign_key "ratings", "users", column: "rater_id"
 end

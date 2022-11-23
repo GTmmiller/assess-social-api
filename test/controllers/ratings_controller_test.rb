@@ -18,4 +18,13 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
       post rating_url(@rating.ratee_id), params: { rating: { rater_id: @rating.rater_id, stars: @rating.stars + 2 }}
     end
   end
+
+  test "should update when rating > 4" do
+    ratee_user = users(:three)
+    rater_user = users(:one)
+    
+    assert_difference("RatingChange.count", 1) do
+      post rating_url(ratee_user.id), params: { rating: { rater_id: rater_user.id, stars: 5 }}
+    end
+  end
 end
