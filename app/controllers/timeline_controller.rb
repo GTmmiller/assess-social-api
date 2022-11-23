@@ -4,8 +4,10 @@ class TimelineController < ApplicationController
     BATCH_SIZE = 10
 
     def get_timeline
-        
-        render json: @timeline_user.posts + @timeline_user.comments + @timeline_user.rating_changes        
+        timeline = @timeline_user.posts + @timeline_user.comments + @timeline_user.rating_changes
+        timeline.sort_by { |item| item[:created_at] }.reverse!
+
+        render json: timeline
     end
 
     private
