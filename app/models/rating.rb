@@ -1,9 +1,7 @@
 class Rating < ApplicationRecord
-    has_one :rater, class_name: "User",
-                    foreign_key: "rater_id"
+    belongs_to :rater, class_name: "User"
+    belongs_to :ratee, class_name: "User"
 
-    has_one :ratee, class_name: "User",
-                    foreign_key: "ratee_id"
 
     validates :rater_id, comparison: { other_than: :ratee_id }
     validates :stars, comparison: { greater_than: 0 }
