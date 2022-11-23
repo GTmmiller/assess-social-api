@@ -1,7 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  star: 1
+# one_rating:
+#   stars: 1
+#   rater_id: one
+#   ratee_id: two
 
-two:
-  star: 1
+# two_rating:
+#   stars: 2
+#   rater_id: two
+#   ratee_id: one
