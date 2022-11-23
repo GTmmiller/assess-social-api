@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :comments
   post '/rating/:id', to: 'ratings#rate_user', as: 'rating'
   post '/post/', to: 'posts#create', as: 'post'
+  get '/timeline/:id', to: 'timeline#get_timeline', as: 'timeline'
 
 end
