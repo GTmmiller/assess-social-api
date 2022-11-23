@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_173402) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_220157) do
   create_table "actions", force: :cascade do |t|
     t.string "action_type"
     t.text "body"
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_173402) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "github_user"
   end
 
   add_foreign_key "actions", "users"
