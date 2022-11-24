@@ -17,7 +17,7 @@ class RatingsController < ApplicationController
                 RatingChange.create({user_id: ratee_id})
             end
 
-            render :show, status: :created, location: @rating
+            render json: @rating, status: :created, location: @rating
         else 
             render json: @rating.errors, status: :unprocessable_entity
         end
